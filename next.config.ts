@@ -3,9 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
-    env: {
-    // Make sure environment variables are available at build time
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+   env: {
+    // Use Vercel's environment variable for the app URL
+    NEXT_PUBLIC_APP_URL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
   },
   // Enable static exports if needed (optional)
   trailingSlash: true,
